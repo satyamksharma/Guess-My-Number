@@ -3,14 +3,16 @@
 let secretNum = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
-
+const dispMessage = function(message){
+    document.querySelector('.message').textContent = message;
+}
 //DOM Manipulation
 document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
     console.log(guess);
     //if no number is input
     if(!guess){
-        document.querySelector('.message').textContent = '🔴 No Number!';
+        dispMessage('🔴 No Number!');
     }
     // If the guess is correct
     else if( guess == secretNum){
