@@ -23,18 +23,12 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('.highscore').textContent = highScore;
         }
     }
-
-    //If the guess is too low
-    else if(guess < secretNum && score > 0){
+    // If the guess is wrong ie low or high 
+    else if(guess !== secretNum && score > 0)
+    {
         score--;
         document.querySelector('.score').textContent = score;
-        document.querySelector('.message').textContent = '⏬ Too Low!';
-    }
-    // If the guess is high
-    else if(guess > secretNum && score > 0){
-        score--;
-        document.querySelector('.score').textContent = score;
-        document.querySelector('.message').textContent = '⏫ Too High!';
+        document.querySelector('.message').textContent = guess < secretNum ? '⏬ Too Low!' : '⏫ Too High!';
     }
     // if no match found
     if(score == 0)
